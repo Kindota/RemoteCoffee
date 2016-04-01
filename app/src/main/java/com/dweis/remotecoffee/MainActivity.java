@@ -91,14 +91,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 BluetoothSocket socket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
                 socket.connect();
                 OutputStream output = socket.getOutputStream();
-                //InputStream input = socket.getInputStream();
                 output.write((byte) message);
                 output.flush();
                 publishProgress("Success");
                 Thread.sleep(2000);
-                //Thread.sleep(100);
-                //Log.v("INPUT", "" + input.read());
-                //input.close();
                 output.close();
                 socket.close();
             } catch (Exception e){
